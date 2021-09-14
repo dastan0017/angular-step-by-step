@@ -1,0 +1,31 @@
+<div class="form_container">
+  <button (click)="toggleForm()" class="toggle_form_btn btn">
+    {{ isFormOpen ? "Close" : "Add Product" }}
+  </button>
+  <form *ngIf="isFormOpen" (ngSubmit)="onSubmit()">
+    <div class="form-control" style="margin: 1rem">
+      <label for="name">Name: </label>
+      <input type="text" name="name" [(ngModel)]="name" placeholder="Name" />
+    </div>
+    <div class="form-control" style="margin: 1rem">
+      <label for="description">Description: </label>
+      <input
+        type="text"
+        name="description"
+        [(ngModel)]="description"
+        placeholder="Description"
+      />
+    </div>
+    <div class="form-control" style="margin: 1rem">
+      <label for="price">Price </label>
+      <input
+        type="number"
+        name="price"
+        [(ngModel)]="price"
+        placeholder="Price"
+      />
+    </div>
+
+    <input type="submit" value="Save Product" />
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<h1>Topics that was used in this project:</h1>
+<ul>
+  <li>Interpolation</li>
+  <li>ngFor && ngIf</li>
+  <li>Interface for each product</li>
+  <li>We can add styles in css to attributes such as 'app-product-card'</li>
+  <li>
+    Passing an event with property from child to parent with 'EventEmitter'
+  </li>
+  <li>
+    Seperated each somponent logic | when clicks to one component it only
+    updates itself
+  </li>
+  <li>
+    Learned that event emitter name should not be such (submit)="onSubmit". It
+    would be better to rename (onAddNewProduct)="onSubmit"
+  </li>
+</ul>
+<h4 style="font-size: 24px; text-align: center">
+  Number of selected cards : {{ selectedCards }}
+</h4>
+<app-add-product (onAddNewProduct)="onAddProduct($event)"></app-add-product>
+<div class="product_list_container">
+  <app-product-card
+    (onToggle)="toggleCard($event)"
+    (onDelete)="deleteProject($event)"
+    *ngFor="let product of productList"
+    [product]="product"
+  ></app-product-card>
+</div>

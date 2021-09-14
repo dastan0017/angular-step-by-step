@@ -1,0 +1,15 @@
+.active {
+  background: green;
+  color: white;
+}
+
+.product_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: 2px solid #14c954;
+  border-radius: 5px;
+  padding: 1rem;
+}

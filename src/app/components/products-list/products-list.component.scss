@@ -1,0 +1,10 @@
+.product_list_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+app-product-card {
+  width: 30%;
+}

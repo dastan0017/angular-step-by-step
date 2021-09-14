@@ -1,0 +1,18 @@
+<div class="product_card" [ngClass]="isActive ? 'active' : ''">
+  <h3>
+    <a [title]="product.name + 'Details'">{{ product.name }}</a>
+  </h3>
+  <p>{{ product.description }}</p>
+  <p *ngIf="product.price > 15">{{ product.price | currency: "сом" }}</p>
+  <div style="display: flex; justify-content: space-between; width: 100%">
+    <button (click)="selectProduct()">
+      {{ isActive ? "Unslect" : "Select" }}
+    </button>
+    <button
+      style="padding: 5px; background: #eb4034; color: white"
+      (click)="deleteProject(product.id)"
+    >
+      Delete
+    </button>
+  </div>
+</div>
