@@ -4,7 +4,9 @@ import { ProductsListComponent } from './components/products-list/products-list.
 const routes: Routes = [{ path: 'products', component: ProductsListComponent }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

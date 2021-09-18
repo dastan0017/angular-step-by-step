@@ -16,7 +16,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     ProductCardComponent,
     AddProductComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), FormsModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
