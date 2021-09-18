@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "dev:ssr": "ng run AssetsTest:serve-ssr",
+    "serve:ssr": "node dist/AssetsTest/server/main.js",
+    "build:ssr": "ng build && ng run AssetsTest:server",
+    "prerender": "ng run AssetsTest:prerender"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +22,11 @@
     "@angular/forms": "~12.1.0",
     "@angular/platform-browser": "~12.1.0",
     "@angular/platform-browser-dynamic": "~12.1.0",
+    "@angular/platform-server": "~12.1.0",
     "@angular/router": "~12.1.0",
+    "@nguniversal/express-engine": "^12.1.0",
     "@types/uuid": "^8.3.1",
+    "express": "^4.15.2",
     "json-server": "^0.16.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
@@ -30,6 +37,8 @@
     "@angular-devkit/build-angular": "~12.1.0",
     "@angular/cli": "~12.1.0",
     "@angular/compiler-cli": "~12.1.0",
+    "@nguniversal/builders": "^12.1.0",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
