@@ -9,7 +9,7 @@ import { Product } from '../../data/products';
 export class ProductCardComponent implements OnInit {
   @Input() product!: Product;
   @Output() onToggle = new EventEmitter<boolean>();
-  @Output() onDelete = new EventEmitter<number>();
+  @Output() onDelete = new EventEmitter<Product>();
   isActive = false;
 
   constructor() {}
@@ -21,7 +21,7 @@ export class ProductCardComponent implements OnInit {
     this.onToggle.emit(this.isActive);
   }
 
-  deleteProject(id: number) {
-    this.onDelete.emit(id);
+  deleteProject(product: Product) {
+    this.onDelete.emit(product);
   }
 }

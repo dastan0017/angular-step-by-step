@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Product } from 'src/app/data/products';
+import * as uuid from 'uuid';
 export interface FormProduct {
   name: string;
   description: string;
@@ -11,7 +13,7 @@ export interface FormProduct {
   styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent implements OnInit {
-  @Output() onAddNewProduct = new EventEmitter<FormProduct>();
+  @Output() onAddNewProduct = new EventEmitter<Product>();
   name!: string;
   description!: string;
   price!: number;
@@ -25,10 +27,13 @@ export class AddProductComponent implements OnInit {
     }
 
     const newProduct = {
+      id: uuid.v1(),
       name: this.name,
       description: this.description,
       price: this.price,
     };
+
+    console.log(newProduct)
     this.onAddNewProduct.emit(newProduct);
     this.clearInputs();
   }

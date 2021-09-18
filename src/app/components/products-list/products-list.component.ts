@@ -9,23 +9,30 @@ import { FormProduct } from '../add-product/add-product.component';
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
-  productList: Product[] = this.productService.getItems();
+  productList!: Product[];
   selectedCards = 0;
 
   constructor(private productService: ProductService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe((products) => {
+      this.productList = products;
+    });
+  }
 
   toggleCard(isActive: boolean) {
     isActive ? this.selectedCards++ : this.selectedCards--;
   }
 
-  deleteProject(id: number) {
-    this.productService.deleteProduct(id);
-    this.productList = this.productService.getItems();
+  deleteProject(product: Product) {
+    this.productService.deleteProduct(product).subscribe(() => {
+      this.productList = this.productList.filter((el) => product.id !== el.id);
+    });
   }
 
-  onAddProduct(newProduct: FormProduct) {
-    console.log('submit')
-    this.productService.addProduct(newProduct);
+  onAddProduct(newProduct: Product) {
+    console.log('submit');
+    this.productService
+      .addProduct(newProduct)
+      .subscribe((product) => this.productList.push(product));
   }
 }
